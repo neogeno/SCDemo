@@ -3,8 +3,10 @@ import { extendObservable, action, decorate, computed, observable, ObservableMap
 export class ObservableStore {
 	constructor() {
 		extendObservable(this, {
-			userlist: [],
-			albumlist: null
+			userListJSON: null,
+			albumlist: null,
+			loading: true,
+			userThumbnailsArray: []
 		});
 	}
 }
