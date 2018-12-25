@@ -20,7 +20,7 @@ export default class App extends Component<Props> {
 		return (
 			<View testID="welcome" style={styles.container}>
 				<Text style={styles.welcome}>Welcome to the Standard Chartered Demo!</Text>
-				<Text style={styles.instructions}>To get started, edit App.js</Text>
+				<Text style={styles.instructions}>Cross Platform</Text>
 				<Text style={styles.instructions}>{instructions}</Text>
 			</View>
 		);
