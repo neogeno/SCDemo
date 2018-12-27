@@ -4,7 +4,12 @@ export class ObservableStore {
 	constructor() {
 		extendObservable(this, {
 			userListJSON: null,
+			userDataJSON: null,
+			userPostsJSON: null,
+			userCommentsJSON: null,
+			userCommentsArray: [],
 			albumlist: null,
+			userID: 0,
 			loading: true,
 			userThumbnailsArray: []
 		});

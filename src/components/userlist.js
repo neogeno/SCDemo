@@ -25,7 +25,7 @@ class UserList extends Component {
 			);
 		}
 		this.arrayHolder = JSON.parse(store.userListJSON);
-		console.log('userlistarray shown =', this.arrayHolder[0]);
+
 		return (
 			<View style={{ flex: 1, width: '100%', height: '100%' }}>
 				{this.arrayHolder.map((l, i) => (
@@ -37,9 +37,15 @@ class UserList extends Component {
 							}
 						}}
 						title={l.name}
-						onPress={() => this.props.navigation.navigate('Details')}
+						onPress={() => {
+							store.userID = l.id;
+							store.userDataJSON = JSON.stringify(l);
+							this.props.navigation.navigate('Details', {
+								...l
+							});
+						}}
 						titleStyle={{ fontWeight: 'bold' }}
-						subtitle={l.email}
+						subtitle={`@ ${l.username}`}
 						chevron
 					/>
 				))}

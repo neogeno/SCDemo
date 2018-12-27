@@ -1,6 +1,6 @@
 /**
  * Sample React Native App for Standard Chartered
- * Author: P. Chugh 
+ * Author: P. Chugh December 2018
  * https://github.com/neogeno/SCDemo
  *
  * @format
@@ -22,7 +22,16 @@ const RootStack = createStackNavigator(
 		Details: DetailsScreen
 	},
 	{
-		initialRouteName: 'Home'
+		initialRouteName: 'Home',
+		defaultNavigationOptions: {
+			headerStyle: {
+				backgroundColor: '#0072AA' // Standard Chartered Logo Color
+			},
+			headerTintColor: '#fff',
+			headerTitleStyle: {
+				fontWeight: 'bold'
+			}
+		}
 	}
 );
 

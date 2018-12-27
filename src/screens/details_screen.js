@@ -3,16 +3,36 @@ import { observer } from 'mobx-react';
 import store from '../store';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import UserList from '../components/userlist';
-import { Header } from 'react-native-elements';
+import { Header, Avatar } from 'react-native-elements';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import InfoScreen from './info_screen';
+import Posts from './posts_screen';
 
-class DetailsScreen extends React.Component {
+class Todos extends React.Component {
 	render() {
 		return (
-			<View testID="DetailsScreen" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-				<Text>Details Go Here</Text>
+			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+				<Text>Todos!</Text>
 			</View>
 		);
 	}
 }
 
-export default observer(DetailsScreen);
+class Photos extends React.Component {
+	render() {
+		return (
+			<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+				<Text>Albums!</Text>
+			</View>
+		);
+	}
+}
+
+const TabNavigator = createBottomTabNavigator({
+	Info: InfoScreen,
+	Posts: Posts,
+	Todos: Todos,
+	Photos: Photos
+});
+
+export default createAppContainer(TabNavigator);
