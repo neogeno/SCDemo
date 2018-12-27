@@ -40,7 +40,7 @@ class CommentsList extends Component {
 						}}
 						leftAvatar={{
 							source: {
-								uri: `https://randomuser.me/api/portraits/thumb/men/${l.id}.jpg`
+								uri: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`
 							}
 						}}
 						title={l.email}

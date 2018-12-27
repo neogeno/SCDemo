@@ -50,8 +50,14 @@ class InfoScreen extends React.Component {
 					</Text>
 					<Text style={{ textAlign: 'center' }}>{'\n'}Favourite Catchphrase</Text>
 				</View>
+				<View style={{ paddingVertical: 20, height: 150 }}>
+					<Text h4 style={{ textAlign: 'center' }}>
+						"{ud.company.bs}"
+					</Text>
+					<Text style={{ textAlign: 'center' }}>{'\n'}Corporate BS</Text>
+				</View>
 				<View style={styles.container}>
-					<MapView provider={PROVIDER_GOOGLE} style={styles.map} region={region}>
+					<MapView provider={PROVIDER_GOOGLE} scrollEnabled={false} style={styles.map} region={region}>
 						<Marker
 							key={ud.id}
 							pinColor="red"
@@ -60,13 +66,6 @@ class InfoScreen extends React.Component {
 								.zipcode}`}
 						/>
 					</MapView>
-				</View>
-
-				<View style={{ paddingVertical: 20, height: 150 }}>
-					<Text h4 style={{ textAlign: 'center' }}>
-						"{ud.company.bs}"
-					</Text>
-					<Text style={{ textAlign: 'center' }}>{'\n'}Corporate BS</Text>
 				</View>
 			</ScrollView>
 		);
