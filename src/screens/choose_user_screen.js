@@ -7,7 +7,17 @@ import { Header } from 'react-native-elements';
 
 class ChooseUserScreen extends React.Component {
 	static navigationOptions = {
-		title: 'Standard Chartered Demo'
+		title: 'Choose User',
+		// 		defaultNavigationOptions: {
+		headerStyle: {
+			backgroundColor: '#0072AA', // Standard Chartered Logo Color
+			title: 'Title'
+		},
+		headerTintColor: '#fff',
+		headerTitleStyle: {
+			fontWeight: 'bold'
+		}
+		// 		}
 	};
 	render() {
 		return (

@@ -6,12 +6,15 @@ export class ObservableStore {
 			userListJSON: null,
 			userDataJSON: null,
 			userPostsJSON: null,
+			userAlbumJSON: null,
+			userPhotoJSON: null,
 			userCommentsJSON: null,
 			userCommentsArray: [],
-			albumlist: null,
+			userTodoJSON: null,
 			userID: 0,
-			loading: true,
-			userThumbnailsArray: []
+			title: 'Standard Chartered',
+			selectedAlbumID: 0,
+			loading: true
 		});
 	}
 }

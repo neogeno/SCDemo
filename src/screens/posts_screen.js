@@ -35,7 +35,8 @@ class Posts extends React.Component {
 								<ListItem
 									key={ud.id}
 									leftAvatar={{
-										source: { uri: `https://randomuser.me/api/portraits/women/${ud.id}.jpg` }
+										source: { uri: `https://randomuser.me/api/portraits/women/${ud.id}.jpg` },
+										size: 'large'
 									}}
 									containerStyle={{
 										justifyContent: 'flex-start',
@@ -49,12 +50,13 @@ class Posts extends React.Component {
 							}
 						>
 							<Tile
-								width={310}
+								width="100%"
 								height={400}
 								imageSrc={require('../images/blueocean.jpg')}
 								title={l.title}
 								caption={l.body}
 								featured
+								activeOpacity={1}
 							/>
 							<CommentsList postID={l.id} />
 						</Card>

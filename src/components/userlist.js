@@ -7,6 +7,10 @@ import { observable } from 'mobx';
 import { getUsersFromApi } from '../actions';
 
 class UserList extends Component {
+	static navigationOptions = {
+		title: 'Home'
+	};
+
 	constructor(props) {
 		super(props);
 		this.arrayHolder = [];
@@ -17,15 +21,14 @@ class UserList extends Component {
 	}
 
 	render() {
-		if (store.loading) {
+		this.arrayHolder = JSON.parse(store.userListJSON);
+		if (this.arrayHolder == null) {
 			return (
 				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 					<ActivityIndicator size="large" />
 				</View>
 			);
 		}
-		this.arrayHolder = JSON.parse(store.userListJSON);
-
 		return (
 			<View style={{ flex: 1, width: '100%', height: '100%' }}>
 				{this.arrayHolder.map((l, i) => (
@@ -40,9 +43,7 @@ class UserList extends Component {
 						onPress={() => {
 							store.userID = l.id;
 							store.userDataJSON = JSON.stringify(l);
-							this.props.navigation.navigate('Details', {
-								...l
-							});
+							this.props.navigation.navigate('App');
 						}}
 						titleStyle={{ fontWeight: 'bold' }}
 						subtitle={`@ ${l.username}`}

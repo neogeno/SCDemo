@@ -1,47 +1,48 @@
 {
-  "name": "SCDemo",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@babel/plugin-proposal-decorators": "^7.2.3",
-    "mobx": "^5.8.0",
-    "mobx-react": "^5.4.3",
-    "react": "16.6.3",
-    "react-native": "0.57.8",
-    "react-native-elements": "^1.0.0-beta7",
-    "react-native-gesture-handler": "^1.0.12",
-    "react-native-maps": "^0.22.1",
-    "react-native-vector-icons": "^6.1.0",
-    "react-navigation": "^3.0.9"
-  },
-  "devDependencies": {
-    "babel-jest": "23.6.0",
-    "chai": "^4.2.0",
-    "detox": "^9.1.2",
-    "enzyme": "^3.8.0",
-    "istanbul": "^1.0.0-alpha.2",
-    "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.51.1",
-    "mocha": "^5.2.0",
-    "react-test-renderer": "16.6.3",
-    "sinon": "^7.2.2"
-  },
-  "jest": {
-    "preset": "react-native"
-  },
-  "detox": {
-    "configurations": {
-      "ios.sim.debug": {
-        "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/SCDemo.app",
-        "build": "xcodebuild -project ios/SCDemo.xcodeproj -scheme SCDemo -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
-        "type": "ios.simulator",
-        "name": "iPhone X"
-      }
-    },
-    "test-runner": "mocha"
-  }
+	"name": "SCDemo",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"@babel/plugin-proposal-decorators": "^7.2.3",
+		"mobx": "^4.5.0",
+		"mobx-react": "^5.2.8",
+		"react": "16.6.3",
+		"react-native": "0.57.8",
+		"react-native-elements": "^1.0.0-beta7",
+		"react-native-gesture-handler": "^1.0.12",
+		"react-native-interactive-image-gallery": "^0.1.2",
+		"react-native-maps": "^0.22.1",
+		"react-native-vector-icons": "^6.1.0",
+		"react-navigation": "^3.0.9"
+	},
+	"devDependencies": {
+		"babel-jest": "23.6.0",
+		"chai": "^4.2.0",
+		"detox": "^9.1.2",
+		"enzyme": "^3.8.0",
+		"istanbul": "^1.0.0-alpha.2",
+		"jest": "23.6.0",
+		"metro-react-native-babel-preset": "0.51.1",
+		"mocha": "^5.2.0",
+		"react-test-renderer": "16.6.3",
+		"sinon": "^7.2.2"
+	},
+	"jest": {
+		"preset": "react-native"
+	},
+	"detox": {
+		"configurations": {
+			"ios.sim.debug": {
+				"binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/SCDemo.app",
+				"build": "xcodebuild -project ios/SCDemo.xcodeproj -scheme SCDemo -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+				"type": "ios.simulator",
+				"name": "iPhone X"
+			}
+		},
+		"test-runner": "mocha"
+	}
 }

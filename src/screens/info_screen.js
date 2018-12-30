@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import store from '../store';
+import { withNavigation } from 'react-navigation';
 import { Platform, StyleSheet, View, ScrollView } from 'react-native';
 import UserList from '../components/userlist';
-import { ListItem, Tile, Text, Divider } from 'react-native-elements';
+import { ListItem, Tile, Text, Divider, Button } from 'react-native-elements';
 import MapView, { Marker, ProviderPropType, PROVIDER_GOOGLE } from 'react-native-maps';
+import MyBackButton from '../components/backbutton';
 
 const styles = StyleSheet.create({
 	container: {
 		height: 200,
-		width: 350,
-		justifyContent: 'flex-end',
+		width: '100%',
+		justifyContent: 'center',
 		alignItems: 'center'
 	},
 	map: {
 		...StyleSheet.absoluteFillObject
 	}
 });
+
 class InfoScreen extends React.Component {
 	render() {
 		let ud = JSON.parse(store.userDataJSON);
@@ -32,6 +35,7 @@ class InfoScreen extends React.Component {
 		};
 		return (
 			<ScrollView style={{ padding: 10 }}>
+				<Button onPress={() => console.log(this.props.navigation)} />
 				<ListItem
 					key={ud.id}
 					leftAvatar={{
@@ -44,13 +48,13 @@ class InfoScreen extends React.Component {
 					subtitleStyle={{ width: 200 }}
 				/>
 				<ListItem title="Works at" subtitle={ud.company.name} rightTitle={ud.website} />
-				<View style={{ paddingVertical: 20, height: 150 }}>
+				<View style={{ height: 130 }}>
 					<Text h4 style={{ textAlign: 'center' }}>
 						"{ud.company.catchPhrase}"
 					</Text>
 					<Text style={{ textAlign: 'center' }}>{'\n'}Favourite Catchphrase</Text>
 				</View>
-				<View style={{ paddingVertical: 20, height: 150 }}>
+				<View style={{ height: 130 }}>
 					<Text h4 style={{ textAlign: 'center' }}>
 						"{ud.company.bs}"
 					</Text>

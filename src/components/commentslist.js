@@ -31,22 +31,23 @@ class CommentsList extends Component {
 		return (
 			<View style={{ flex: 1, width: '100%', height: '100%' }}>
 				{this.renderArray[0].map((l, i) => (
-					<ListItem
-						key={`comment_${this.postID}_${l.id}`}
-						containerStyle={{
-							justifyContent: 'flex-start',
-							borderBottomColor: '#E5E5E5',
-							borderBottomWidth: 0.5
-						}}
-						leftAvatar={{
-							source: {
-								uri: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`
-							}
-						}}
-						title={l.email}
-						titleStyle={{ fontWeight: 'bold' }}
-						subtitle={l.body}
-					/>
+					<View key={`comment_${this.postID}_${l.id}`}>
+						<ListItem
+							containerStyle={{
+								justifyContent: 'flex-start',
+								borderTopColor: '#E5E5E5',
+								borderTopWidth: 0.5
+							}}
+							leftAvatar={{
+								source: {
+									uri: `https://randomuser.me/api/portraits/thumb/men/${i}.jpg`
+								}
+							}}
+							title={l.email}
+							subtitle={l.name}
+						/>
+						<Text style={{ paddingBottom: 10 }}>{l.body}</Text>
+					</View>
 				))}
 			</View>
 		);
