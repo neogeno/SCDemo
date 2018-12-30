@@ -11,6 +11,8 @@ export class ObservableStore {
 			userCommentsJSON: null,
 			userCommentsArray: [],
 			userTodoJSON: null,
+			userTodoCompleteJSON: null,
+			userTodoInCompleteJSON: null,
 			userID: 0,
 			title: 'Standard Chartered',
 			selectedAlbumID: 0,

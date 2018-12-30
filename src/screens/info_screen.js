@@ -35,7 +35,6 @@ class InfoScreen extends React.Component {
 		};
 		return (
 			<ScrollView style={{ padding: 10 }}>
-				<Button onPress={() => console.log(this.props.navigation)} />
 				<ListItem
 					key={ud.id}
 					leftAvatar={{

@@ -29,6 +29,9 @@ class Albums extends React.Component {
 
 		return (
 			<ScrollView>
+				<Text style={{ textAlign: 'center', fontSize: 20 }}>
+					Swipe inwards from Left edge to return to App Menu, Swipe Up/Down to exit Full Screen Mode
+				</Text>
 				<View style={{ padding: 10, flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-between' }}>
 					{this.renderData.map((l, i) => (
 						<View

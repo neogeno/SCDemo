@@ -46,8 +46,11 @@ export async function getCommentsFromApi(postID) {
 
 export async function getTodosFromApi(userID) {
 	let responseArray = await fetchData('https://jsonplaceholder.typicode.com/todos?userID=', userID);
+	let completeArray = responseArray.filter((e) => e.completed == true);
+	let notdoneArray = responseArray.filter((e) => e.completed == false);
 	store.userTodoJSON = JSON.stringify(responseArray);
-	console.log('todo:', responseArray);
+	store.userTodoCompleteJSON = JSON.stringify(completeArray);
+	store.userTodoInCompleteJSON = JSON.stringify(notdoneArray);
 }
 
 export async function getAlbumsFromApi(userID) {

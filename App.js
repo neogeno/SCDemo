@@ -43,19 +43,15 @@ const TabNavigator = createBottomTabNavigator(
 				switch (routeName) {
 					case 'Info':
 						iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-						store.title = routeName;
 						break;
 					case 'Todos':
 						iconName = `ios-checkbox${focused ? '' : '-outline'}`;
-						store.title = routeName;
 						break;
 					case 'Posts':
 						iconName = `ios-chatbubbles`;
-						store.title = routeName;
 						break;
 					case 'Photos':
 						iconName = `ios-albums`;
-						store.title = routeName;
 						break;
 					default:
 						break;
@@ -75,13 +71,15 @@ const Tabs = createAppContainer(TabNavigator);
 
 class TabScreen extends React.Component {
 	static navigationOptions = {
-		headerRight: (
-			<Button
+		headerLeft: (
+			<Icon
 				onPress={() => {
 					store.userID = 0;
 				}}
-				title="?"
+				name="times"
+				type="font-awesome"
 				color="#fff"
+				iconStyle={{ paddingLeft: 5 }}
 			/>
 		),
 		title: store.title,
@@ -102,32 +100,21 @@ const AuthStack = createStackNavigator({ SignIn: ChooseUserScreen });
 const AppStack = createStackNavigator({ Home: TabScreen });
 
 const AppContainer = createAppContainer(
-	createSwitchNavigator(
-		{
-			Auth: ChooseUserScreen,
-			App: AppStack
-		},
-		{
-			backBehavior: 'initialRoute',
-			initialRouteName: 'Auth',
-			defaultNavigationOptions: {
-				headerStyle: {
-					backgroundColor: '#0072AA', // Standard Chartered Logo Color
-					title: 'Title'
-				},
-				headerTintColor: '#fff',
-				headerTitleStyle: {
-					fontWeight: 'bold'
-				}
-			}
-		}
-	)
+	createSwitchNavigator({
+		App: AppStack
+	})
+);
+
+const AuthContainer = createAppContainer(
+	createSwitchNavigator({
+		App: AuthStack
+	})
 );
 
 // App Entry point shows the root navigator stack
 class App extends Component {
 	render() {
-		return <AppContainer />;
+		return store.userID == 0 ? <AuthContainer /> : <AppContainer />;
 	}
 }
 

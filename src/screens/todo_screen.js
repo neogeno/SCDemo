@@ -2,21 +2,23 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import store from '../store';
 import { View, ScrollView, ActivityIndicator } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { ListItem, Text } from 'react-native-elements';
 import { getTodosFromApi } from '../actions';
 
 class Todos extends React.Component {
 	constructor(props) {
 		super(props);
-		this.renderData = null;
+		this.undone = null;
+		this.done = null;
 	}
 
 	componentDidMount() {
 		getTodosFromApi(store.userID);
 	}
 	render() {
-		this.renderData = JSON.parse(store.userTodoJSON);
-		if (!this.renderData) {
+		this.undone = JSON.parse(store.userTodoInCompleteJSON);
+		this.done = JSON.parse(store.userTodoCompleteJSON);
+		if (!this.undone || !this.done) {
 			return (
 				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 					<ActivityIndicator size="large" />
@@ -24,8 +26,22 @@ class Todos extends React.Component {
 			);
 		}
 		return (
-			<ScrollView>
-				{this.renderData.map((l, i) => (
+			<ScrollView style={{ padding: 10 }}>
+				<Text h4>Incomplete</Text>
+				{this.undone.map((l, i) => (
+					<ListItem
+						key={`todo_${l.id}`}
+						containerStyle={{
+							justifyContent: 'flex-start',
+							borderBottomColor: '#E5E5E5',
+							borderBottomWidth: 0.5
+						}}
+						leftIcon={!l.completed ? { name: 'check-box-outline-blank' } : { name: 'check-box' }}
+						title={l.title}
+					/>
+				))}
+				<Text h4>Done</Text>
+				{this.done.map((l, i) => (
 					<ListItem
 						key={`todo_${l.id}`}
 						containerStyle={{

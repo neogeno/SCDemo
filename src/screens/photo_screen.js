@@ -30,13 +30,11 @@ class Photos extends React.Component {
 		}
 
 		return (
-			<Tooltip popover={<Text>Info here</Text>}>
-				<ImageBrowser
-					onPressImage={() => console.log('image pressed')}
-					infoTitleStyles={{ fontSize: 20 }}
-					images={this.renderData}
-				/>
-			</Tooltip>
+			<ImageBrowser
+				onPressImage={() => console.log('image pressed')}
+				infoTitleStyles={{ fontSize: 20 }}
+				images={this.renderData}
+			/>
 		);
 	}
 }
