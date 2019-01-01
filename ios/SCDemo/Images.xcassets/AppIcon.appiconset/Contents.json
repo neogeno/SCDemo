@@ -11,8 +11,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "Bubbles 2@58w.png",
       "scale" : "2x"
     },
     {
@@ -31,8 +32,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Bubbles 2@120w.png",
       "scale" : "2x"
     },
     {
@@ -41,8 +43,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "ios-marketing",
       "size" : "1024x1024",
+      "idiom" : "ios-marketing",
+      "filename" : "Bubbles 2@1024w.png",
       "scale" : "1x"
     }
   ],
