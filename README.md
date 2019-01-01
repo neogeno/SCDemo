@@ -1,10 +1,18 @@
 # SCDemo - Standard Chartered Demo App by P. Chugh January 1 2019
 
-## Installation Instructions on Mac OS / Linux
+## Instructions on building and running from Source on a Mac OS machine
 
 ### Prerequisites:
-* React Native installed 
-* XCode CLI utilities installed
+* React Native
+* XCode and Xcode CLI utilities
+* Cocao Pods
+* npm / nodeJS
+* Android Studio
+
+### Install Steps for iOS version
+
+1. Clone repo
+```git clone https://github.com/neogeno/SCDemo.git```
 
 
 
