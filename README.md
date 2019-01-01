@@ -12,6 +12,7 @@
 ### Install Steps for iOS version
 
 1. Clone repo
+
 ```git clone https://github.com/neogeno/SCDemo.git```
 
 
