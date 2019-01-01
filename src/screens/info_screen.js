@@ -70,7 +70,7 @@ class InfoScreen extends React.Component {
 						/>
 					</MapView>
 					{Platform.OS == 'android' ? (
-						<Text style={infoScreenMapTitle}>
+						<Text style={styles.infoScreenMapTitle}>
 							{ud.address.suite}, {ud.address.street}
 							{ud.address.city}, {ud.address.zipcode}
 						</Text>
