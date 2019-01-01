@@ -7,13 +7,13 @@ describe('SCDemo', () => {
 		await expect(element(by.id('chooseUserScreen'))).toBeVisible();
 	});
 
-	// it('should show hello screen after tap', async () => {
-	//   await element(by.id('hello_button')).tap();
-	//   await expect(element(by.text('Hello!!!'))).toBeVisible();
-	// });
+	it('should show user info screen after tapping first user', async () => {
+		await element(by.id('user_1')).tap();
+		await expect(element(by.text('Leanne Graham'))).toBeVisible();
+	});
 
-	// it('should show world screen after tap', async () => {
-	//   await element(by.id('world_button')).tap();
-	//   await expect(element(by.text('World!!!'))).toBeVisible();
+	// it('should show todo list after tapping todo tab', async () => {
+	// 	await element(by.label('Todos')).tap();
+	// 	await expect(element(by.text('Incomplete'))).toBeVisible();
 	// });
 });

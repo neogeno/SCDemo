@@ -43,7 +43,15 @@ const TabNavigator = createBottomTabNavigator(
 						break;
 				}
 				// Return Icon based on current tab selected
-				return <Icon name={iconName} type="ionicon" size={horizontal ? 20 : 25} color={tintColor} />;
+				return (
+					<Icon
+						testID={'tab_' + routeName}
+						name={iconName}
+						type="ionicon"
+						size={horizontal ? 20 : 25}
+						color={tintColor}
+					/>
+				);
 			}
 		}),
 		tabBarOptions: {

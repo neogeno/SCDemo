@@ -33,7 +33,8 @@ class UserList extends Component {
 			<View style={styles.userListView}>
 				{this.arrayHolder.map((l, i) => (
 					<ListItem
-						key={l.id}
+						key={'user_' + l.id}
+						testID={'user_' + l.id}
 						leftAvatar={{
 							source: {
 								uri: `https://randomuser.me/api/portraits/thumb/women/${l.id}.jpg`
