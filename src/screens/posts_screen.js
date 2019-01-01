@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import store from '../store';
-import { Platform, StyleSheet, View, ScrollView, ActivityIndicator } from 'react-native';
-import UserList from '../components/userlist';
-import { ListItem, Tile, Text, Card, Divider } from 'react-native-elements';
+import { View, ScrollView, ActivityIndicator } from 'react-native';
+import { ListItem, Tile, Card } from 'react-native-elements';
 import { getPostsFromApi } from '../actions';
-import { getCommentsFromApi } from '../actions';
 import CommentsList from '../components/commentslist';
+import styles from '../styles';
 
 class Posts extends React.Component {
 	componentDidMount() {
@@ -17,7 +16,7 @@ class Posts extends React.Component {
 	render() {
 		if (store.loading || !store.userPostsJSON) {
 			return (
-				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<View style={styles.activityIndicator}>
 					<ActivityIndicator size="large" />
 				</View>
 			);
@@ -27,7 +26,7 @@ class Posts extends React.Component {
 		let ud = JSON.parse(store.userDataJSON);
 		return (
 			<ScrollView>
-				<View style={{ flex: 1, width: '100%', height: '100%' }}>
+				<View style={styles.postScreenView}>
 					{postArray.map((l, i) => (
 						<Card
 							key={l.id}
@@ -38,13 +37,9 @@ class Posts extends React.Component {
 										source: { uri: `https://randomuser.me/api/portraits/women/${ud.id}.jpg` },
 										size: 'large'
 									}}
-									containerStyle={{
-										justifyContent: 'flex-start',
-										borderBottomColor: '#E5E5E5',
-										borderBottomWidth: 0.5
-									}}
+									containerStyle={styles.postScreenCard}
 									title={ud.name}
-									titleStyle={{ fontWeight: 'bold' }}
+									titleStyle={styles.postScreenCardTitle}
 									subtitle={ud.email}
 								/>
 							}

@@ -71,13 +71,6 @@ export async function getPhotosFromApi(albumID) {
 			title: 'Title:',
 			description: e.title
 		};
-		// let media = {
-		// 	thumb: e.thumbnailUrl, // thumbnail version of the photo to be displayed in grid view. actual photo is used if thumb is not provided
-		// 	photo: e.url, // a remote photo or local media url
-		// 	id: e.id, // unique identifer for the photo; can be omitted if the `thumb`/`photo` will always be unique
-		// 	caption: e.title, // photo caption to be displayed
-		// 	selected: false // set the photo selected initially(default is false)
-		// };
 		mediaArray.push(media);
 	});
 	console.log('Media Array:', mediaArray);

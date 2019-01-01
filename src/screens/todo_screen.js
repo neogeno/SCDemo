@@ -4,6 +4,7 @@ import store from '../store';
 import { View, ScrollView, ActivityIndicator } from 'react-native';
 import { ListItem, Text } from 'react-native-elements';
 import { getTodosFromApi } from '../actions';
+import styles from '../styles';
 
 class Todos extends React.Component {
 	constructor(props) {
@@ -20,22 +21,18 @@ class Todos extends React.Component {
 		this.done = JSON.parse(store.userTodoCompleteJSON);
 		if (!this.undone || !this.done) {
 			return (
-				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<View style={styles.activityIndicator}>
 					<ActivityIndicator size="large" />
 				</View>
 			);
 		}
 		return (
-			<ScrollView style={{ padding: 10 }}>
+			<ScrollView style={styles.todoScreenScrollView}>
 				<Text h4>Incomplete</Text>
 				{this.undone.map((l, i) => (
 					<ListItem
 						key={`todo_${l.id}`}
-						containerStyle={{
-							justifyContent: 'flex-start',
-							borderBottomColor: '#E5E5E5',
-							borderBottomWidth: 0.5
-						}}
+						containerStyle={styles.todoItem}
 						leftIcon={!l.completed ? { name: 'check-box-outline-blank' } : { name: 'check-box' }}
 						title={l.title}
 					/>
@@ -44,11 +41,7 @@ class Todos extends React.Component {
 				{this.done.map((l, i) => (
 					<ListItem
 						key={`todo_${l.id}`}
-						containerStyle={{
-							justifyContent: 'flex-start',
-							borderBottomColor: '#E5E5E5',
-							borderBottomWidth: 0.5
-						}}
+						containerStyle={styles.todoItem}
 						leftIcon={!l.completed ? { name: 'check-box-outline-blank' } : { name: 'check-box' }}
 						title={l.title}
 					/>

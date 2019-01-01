@@ -1,27 +1,19 @@
 import React, { Component } from 'react';
 import { observer } from 'mobx-react';
-import store from '../store';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import UserList from '../components/userlist';
-import { Header } from 'react-native-elements';
+import styles from '../styles';
 
 class ChooseUserScreen extends React.Component {
 	static navigationOptions = {
 		title: 'Choose User',
-		// 		defaultNavigationOptions: {
-		headerStyle: {
-			backgroundColor: '#0072AA', // Standard Chartered Logo Color
-			title: 'Title'
-		},
+		headerStyle: styles.headerStyle,
 		headerTintColor: '#fff',
-		headerTitleStyle: {
-			fontWeight: 'bold'
-		}
-		// 		}
+		headerTitleStyle: styles.headerTitleStyle
 	};
 	render() {
 		return (
-			<View testID="chooseUserScreen" style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+			<View testID="chooseUserScreen" style={styles.chooseUserView}>
 				<UserList navigation={this.props.navigation} />
 			</View>
 		);

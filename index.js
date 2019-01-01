@@ -18,3 +18,7 @@ YellowBox.ignoreWarnings([
 YellowBox.ignoreWarnings([
 	'You should only render one navigator explicitly in your app, and other navigators should be rendered by including them in that navigator.'
 ]);
+YellowBox.ignoreWarnings([ 'Module RNIKInteractiveImageLibrary requires main queue setup since it overrides ' ]);
+//RNIKInteractiveImageLibrary
+
+// Module RNIKInteractiveImageLibrary requires main queue setup since it overrides `init` but doesn't implement `requiresMainQueueSetup`.

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import { List, ListItem, SearchBar } from 'react-native-elements';
+import { View, ActivityIndicator } from 'react-native';
+import { ListItem } from 'react-native-elements';
 import store from '../store';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
 import { getUsersFromApi } from '../actions';
+import styles from '../styles';
 
 class UserList extends Component {
 	static navigationOptions = {
@@ -24,13 +24,13 @@ class UserList extends Component {
 		this.arrayHolder = JSON.parse(store.userListJSON);
 		if (this.arrayHolder == null) {
 			return (
-				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+				<View style={styles.activityIndicator}>
 					<ActivityIndicator size="large" />
 				</View>
 			);
 		}
 		return (
-			<View style={{ flex: 1, width: '100%', height: '100%' }}>
+			<View style={styles.userListView}>
 				{this.arrayHolder.map((l, i) => (
 					<ListItem
 						key={l.id}
@@ -45,7 +45,7 @@ class UserList extends Component {
 							store.userDataJSON = JSON.stringify(l);
 							this.props.navigation.navigate('App');
 						}}
-						titleStyle={{ fontWeight: 'bold' }}
+						titleStyle={styles.userListTitle}
 						subtitle={`@ ${l.username}`}
 						chevron
 					/>

@@ -1,26 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
 import store from '../store';
-import { withNavigation } from 'react-navigation';
-import { Platform, StyleSheet, View, ScrollView } from 'react-native';
-import UserList from '../components/userlist';
-import { ListItem, Tile, Text, Divider, Button } from 'react-native-elements';
-import MapView, { Marker, ProviderPropType, PROVIDER_GOOGLE } from 'react-native-maps';
-import MyBackButton from '../components/backbutton';
+import { ScrollView, View, Image, Platform } from 'react-native';
+import { Text, Avatar } from 'react-native-elements';
+import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
+import styles from '../styles';
 
-const styles = StyleSheet.create({
-	container: {
-		height: 200,
-		width: '100%',
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	map: {
-		...StyleSheet.absoluteFillObject
-	}
-});
+// const styles = StyleSheet.create({
+
+// });
 
 class InfoScreen extends React.Component {
+	constructor(props) {
+		super(props);
+		this.mapRef = null;
+	}
 	render() {
 		let ud = JSON.parse(store.userDataJSON);
 		let LatLng = {
@@ -34,34 +28,40 @@ class InfoScreen extends React.Component {
 			longitudeDelta: 30
 		};
 		return (
-			<ScrollView style={{ padding: 10 }}>
-				<ListItem
-					key={ud.id}
-					leftAvatar={{
-						size: 140,
-						source: { uri: `https://randomuser.me/api/portraits/women/${ud.id}.jpg` }
-					}}
-					title={ud.name}
-					titleStyle={{ fontSize: 20, fontWeight: 'bold' }}
-					subtitle={'\n' + `☏ ${ud.phone}` + '\n\n' + `✉︎ ${ud.email}`}
-					subtitleStyle={{ width: 200 }}
+			<ScrollView>
+				<Image
+					style={styles.infoScreenHeader}
+					source={require('../images/blue_header.png')}
+					resizeMode="stretch"
 				/>
-				<ListItem title="Works at" subtitle={ud.company.name} rightTitle={ud.website} />
-				<View style={{ height: 130 }}>
-					<Text h4 style={{ textAlign: 'center' }}>
-						"{ud.company.catchPhrase}"
-					</Text>
-					<Text style={{ textAlign: 'center' }}>{'\n'}Favourite Catchphrase</Text>
-				</View>
-				<View style={{ height: 130 }}>
-					<Text h4 style={{ textAlign: 'center' }}>
-						"{ud.company.bs}"
-					</Text>
-					<Text style={{ textAlign: 'center' }}>{'\n'}Corporate BS</Text>
-				</View>
+				<Text style={styles.infoScreenName}>{ud.name}</Text>
+				<Text style={styles.infoScreenCompany}>{ud.company.name}</Text>
+				<Avatar
+					size={140}
+					containerStyle={styles.infoScreenAvatar}
+					rounded
+					source={{ uri: `https://randomuser.me/api/portraits/women/${ud.id}.jpg` }}
+					onPress={() => console.log('Works!')}
+					activeOpacity={0.7}
+				/>
+				<Text style={styles.infoScreenContacts}>
+					{'\n' + `☏ ${ud.phone}` + '\n\n' + `✉︎ ${ud.email}` + '\n\n' + `⚾︎ ${ud.website}`}
+				</Text>
 				<View style={styles.container}>
-					<MapView provider={PROVIDER_GOOGLE} scrollEnabled={false} style={styles.map} region={region}>
+					<MapView
+						mapPadding={{
+							top: 150,
+							right: 0,
+							bottom: 50,
+							left: 0
+						}}
+						provider={PROVIDER_GOOGLE}
+						scrollEnabled={false}
+						style={styles.map}
+						region={region}
+					>
 						<Marker
+							ref={(r) => r.showCallout()}
 							key={ud.id}
 							pinColor="red"
 							coordinate={LatLng}
@@ -69,6 +69,18 @@ class InfoScreen extends React.Component {
 								.zipcode}`}
 						/>
 					</MapView>
+					{Platform.OS == 'android' ? (
+						<Text style={infoScreenMapTitle}>
+							{ud.address.suite}, {ud.address.street}
+							{ud.address.city}, {ud.address.zipcode}
+						</Text>
+					) : null}
+				</View>
+				<View style={styles.infoScreenPhraseView}>
+					<Text style={styles.infoScreenPhraseText}>
+						"{ud.company.catchPhrase}"{'\n'}Favourite Catchphrase {'\n\n'}"{ud.company.bs}"{'\n'}Corporate
+						BS
+					</Text>
 				</View>
 			</ScrollView>
 		);
