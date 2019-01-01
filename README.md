@@ -11,9 +11,24 @@
 
 ### Install Steps for iOS version
 
-1. Clone repo
+Step 1: Clone Repo
 
-```git clone https://github.com/neogeno/SCDemo.git```
+``git clone https://github.com/neogeno/SCDemo.git``
+
+Step 2: Install dependencies
+
+```
+cd SCDemo
+npm install
+cd ios
+pod repo update
+pod install
+```
+
+Step 3: Run in Simulator
+
+``react-native run-ios``
+
 
 
 
