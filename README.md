@@ -5,7 +5,8 @@ Author: P. Chugh January 1 2019
 The task was to build a demonstration app with a GUI of my choice that calls a public testing api  https://jsonplaceholder.typicode.com/. The assumptions made here are that this is not meant to be a fully working app and only a UI showcase. Hence some parts are not implemented such as modifing/adding todos, photos, users etc and also detecting network connectivity, slow connections, offline user access and other common checking
  
 ## Screenshots
-![ios_screenshot_1](/src/images/screenshot1.png)
+![ios_screenshot_1](/src/images/screenshot1.png )
+![ios_screenshot_2](/src/images/screenshot2.png )
 
 ## Highlights
 * Cross Platform app using React Native with only one codebase to maintain
