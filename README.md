@@ -60,11 +60,10 @@ cd SCDemo
 npm install
 ```
 
-Step 3: Ensure Android SDK and Emulator path is correct. Replace below path as necessary
+Step 3: Ensure Android SDK and Emulator path is correct. Replace path to SDK below as necessary
 ```
 export ANDROID_HOME=~/Documents/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
-echo $ANDROID HOME
 ```
 
 Step 4: Show emulators available and run. Use ampersand to run in background process
