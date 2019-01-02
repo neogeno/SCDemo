@@ -2,7 +2,7 @@
 Author: P. Chugh January 1 2019
 
 ## Overview
-The task was to build a demonstration app with a GUI of my choice that calls a public testing api  https://jsonplaceholder.typicode.com/. The assumptions made here are that this is not meant to be a fully working app and only a UI showcase. Hence some parts are not implemented such as modifing/adding todos, photos, users etc and also detecting network connectivity, slow connections, offline user access and other common checking
+The task was to build a demonstration app with a GUI of my choice that calls a public testing api  https://jsonplaceholder.typicode.com/. The assumptions made here are that this is not meant to be a fully working app and only a UI showcase. Hence some parts are not implemented such as modifying/adding todos, photos, users etc and also detecting network connectivity, slow connections, offline user access and other common system validation.
  
 ## Screenshots
 
