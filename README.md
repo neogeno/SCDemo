@@ -6,6 +6,8 @@ The task was to build a demonstration app with a GUI of my choice that calls a p
  
 ## Screenshots
 
+![ios_screenshot_0](/src/images/s0.png )
+![ios_screenshot_5](/src/images/s5.png )
 ![ios_screenshot_2](/src/images/s1.png )
 ![ios_screenshot_2](/src/images/s2.png )
 ![ios_screenshot_3](/src/images/s3.png )
