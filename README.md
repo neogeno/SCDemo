@@ -6,8 +6,11 @@ The task was to build a demonstration app with a GUI of my choice that calls a p
  
 ## Screenshots
 
-![ios_screenshot_2](/src/images/screenshot2.png )
-![ios_screenshot_1](/src/images/screenshot1.png )
+![ios_screenshot_2](/src/images/s1.png )
+![ios_screenshot_2](/src/images/s2.png )
+![ios_screenshot_3](/src/images/s3.png )
+![ios_screenshot_4](/src/images/s4.png )
+
 
 ## Highlights
 * Cross Platform app using React Native with only one codebase to maintain
