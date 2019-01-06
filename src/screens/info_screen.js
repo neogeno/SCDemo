@@ -6,10 +6,6 @@ import { Text, Avatar } from 'react-native-elements';
 import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
 import styles from '../styles';
 
-// const styles = StyleSheet.create({
-
-// });
-
 class InfoScreen extends React.Component {
 	constructor(props) {
 		super(props);
