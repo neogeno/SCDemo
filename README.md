@@ -13,7 +13,7 @@ The task was to build a demonstration app with a GUI of my choice that calls a p
 
 
 ## Highlights
-* Cross Platform app using React Native with only one codebase to maintain
+* Cross Platform app using React Native+MobX with only one codebase to maintain
 * Todos sorted by complete and incomplete
 * Auto rotate and resize screen elements when device orientation changes
 * Google Maps integration
@@ -24,7 +24,7 @@ The task was to build a demonstration app with a GUI of my choice that calls a p
 ## Instructions on building and running from Source on a Mac
 
 ### Prerequisites
-* React Native
+* React Native v0.56+
 * XCode and Xcode CLI utilities
 * Cocao Pods (latest version required)
 * npm / nodeJS
